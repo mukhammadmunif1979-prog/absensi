@@ -1,0 +1,6 @@
+{
+  "name": "AbsensiKu",
+  "description": "Aplikasi absensi karyawan real-time dengan kamera selfie watermark, validasi GPS & radius kantor, riwayat cloud, dan ekspor CSV.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

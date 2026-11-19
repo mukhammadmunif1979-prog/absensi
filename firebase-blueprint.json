@@ -1,0 +1,171 @@
+{
+  "entities": {
+    "AttendanceRecord": {
+      "title": "AttendanceRecord",
+      "description": "Employee check-in or check-out attendance record with watermarked selfie thumbnail, GPS coordinates, accuracy, geofence distance, and Google Maps link.",
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "string",
+          "description": "Firebase Auth UID of the authenticated owner."
+        },
+        "employeeId": {
+          "type": "string",
+          "description": "Employee NIK or ID number."
+        },
+        "employeeName": {
+          "type": "string",
+          "description": "Employee full name."
+        },
+        "status": {
+          "type": "string",
+          "enum": ["CHECK_IN", "CHECK_OUT"],
+          "description": "Attendance type: CHECK_IN (Masuk) or CHECK_OUT (Pulang)."
+        },
+        "latitude": {
+          "type": "number",
+          "description": "GPS latitude coordinate in decimal degrees."
+        },
+        "longitude": {
+          "type": "number",
+          "description": "GPS longitude coordinate in decimal degrees."
+        },
+        "accuracyMeters": {
+          "type": "number",
+          "description": "GPS location accuracy in meters."
+        },
+        "distanceMeters": {
+          "type": "number",
+          "description": "Computed distance in meters from the configured workplace coordinates."
+        },
+        "withinRadius": {
+          "type": "boolean",
+          "description": "Whether the attendance check was within the configured office radius."
+        },
+        "mapsUrl": {
+          "type": "string",
+          "description": "Direct Google Maps link for the recorded GPS coordinates."
+        },
+        "capturedTimeText": {
+          "type": "string",
+          "description": "Formatted local date and time stamped onto the selfie watermark."
+        },
+        "photoBase64": {
+          "type": "string",
+          "description": "Compressed JPEG Base64 string of the watermarked selfie thumbnail."
+        },
+        "syncedToSheets": {
+          "type": "boolean",
+          "description": "Whether the record was also successfully sent to an optional Google Apps Script webhook."
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Firestore server timestamp written via FieldValue.serverTimestamp()."
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Firestore server timestamp written via FieldValue.serverTimestamp()."
+        }
+      },
+      "required": [
+        "userId",
+        "employeeId",
+        "employeeName",
+        "status",
+        "latitude",
+        "longitude",
+        "accuracyMeters",
+        "distanceMeters",
+        "withinRadius",
+        "mapsUrl",
+        "capturedTimeText",
+        "photoBase64",
+        "syncedToSheets",
+        "createdAt",
+        "updatedAt"
+      ]
+    },
+    "WorkplaceSettings": {
+      "title": "WorkplaceSettings",
+      "description": "Per-user employee defaults, office geofence coordinates, maximum allowed radius, and optional Google Apps Script webhook URL.",
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "string",
+          "description": "Firebase Auth UID of the authenticated owner."
+        },
+        "defaultEmployeeId": {
+          "type": "string",
+          "description": "Saved default NIK/ID Karyawan."
+        },
+        "defaultEmployeeName": {
+          "type": "string",
+          "description": "Saved default employee full name."
+        },
+        "officeName": {
+          "type": "string",
+          "description": "Display name of the workplace location."
+        },
+        "officeLatitude": {
+          "type": "number",
+          "description": "Workplace target latitude in decimal degrees."
+        },
+        "officeLongitude": {
+          "type": "number",
+          "description": "Workplace target longitude in decimal degrees."
+        },
+        "maxRadiusMeters": {
+          "type": "number",
+          "description": "Maximum allowed geofence radius in meters (default 100)."
+        },
+        "geofenceEnabled": {
+          "type": "boolean",
+          "description": "Whether strict office radius validation is enforced before submitting attendance."
+        },
+        "sheetsWebhookUrl": {
+          "type": "string",
+          "description": "Optional Google Apps Script Web App URL for forwarding attendance records to Google Sheets and Drive."
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Firestore server timestamp written via FieldValue.serverTimestamp()."
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Firestore server timestamp written via FieldValue.serverTimestamp()."
+        }
+      },
+      "required": [
+        "userId",
+        "defaultEmployeeId",
+        "defaultEmployeeName",
+        "officeName",
+        "officeLatitude",
+        "officeLongitude",
+        "maxRadiusMeters",
+        "geofenceEnabled",
+        "sheetsWebhookUrl",
+        "createdAt",
+        "updatedAt"
+      ]
+    }
+  },
+  "firestore": {
+    "/users/{userId}/attendance/{recordId}": {
+      "schema": {
+        "$ref": "#/entities/AttendanceRecord"
+      },
+      "description": "User-scoped employee attendance history records."
+    },
+    "/users/{userId}/settings/{settingId}": {
+      "schema": {
+        "$ref": "#/entities/WorkplaceSettings"
+      },
+      "description": "User-scoped workplace geofence, employee defaults, and Google Sheets webhook settings (document ID: workplace)."
+    }
+  }
+}

@@ -1,0 +1,94 @@
+<resources>
+    <string name="app_name">AbsensiKu</string>
+
+    <!-- Navigation -->
+    <string name="nav_absen">Absen</string>
+    <string name="nav_riwayat">Riwayat</string>
+    <string name="nav_pengaturan">Lokasi &amp; Sync</string>
+
+    <!-- Auth Screen -->
+    <string name="auth_title">AbsensiKu</string>
+    <string name="auth_subtitle">Sistem presensi karyawan modern dengan foto selfie ber-watermark, verifikasi GPS, radius kantor, dan pencadangan cloud otomatis.</string>
+    <string name="auth_sign_in_google">Masuk dengan Google</string>
+    <string name="auth_feature_camera">Selfie + Watermark Otomatis</string>
+    <string name="auth_feature_gps">Verifikasi GPS &amp; Radius Kantor</string>
+    <string name="auth_feature_cloud">Riwayat Cloud &amp; Ekspor CSV</string>
+    <string name="auth_sign_out">Keluar Akun</string>
+
+    <!-- Attendance Form -->
+    <string name="clock_live_badge">WAKTU REAL-TIME</string>
+    <string name="section_employee_data">Data Karyawan</string>
+    <string name="label_employee_id">NIK / ID Karyawan</string>
+    <string name="placeholder_employee_id">Contoh: EMP-2026-001</string>
+    <string name="label_employee_name">Nama Lengkap</string>
+    <string name="placeholder_employee_name">Masukkan nama lengkap Anda</string>
+    <string name="label_attendance_type">Jenis Absensi</string>
+    <string name="status_check_in">Check-In (Masuk)</string>
+    <string name="status_check_out">Check-Out (Pulang)</string>
+
+    <!-- Camera Section -->
+    <string name="section_camera_selfie">Kamera Selfie</string>
+    <string name="btn_take_photo">Ambil Foto</string>
+    <string name="btn_retake_photo">Foto Ulang</string>
+    <string name="btn_grant_camera">Aktifkan Kamera</string>
+    <string name="camera_permission_rationale">Izin kamera depan dibutuhkan untuk mengambil foto selfie absensi dengan watermark waktu otomatis.</string>
+    <string name="camera_ready_hint">Posisikan wajah di tengah frame lalu tekan Ambil Foto</string>
+    <string name="camera_watermarked_badge">Watermark Otomatis</string>
+    <string name="camera_unavailable_fallback">Kamera depan tidak tersedia di perangkat ini</string>
+
+    <!-- GPS Section -->
+    <string name="section_gps_location">Lokasi GPS</string>
+    <string name="btn_refresh_location">Perbarui Lokasi</string>
+    <string name="btn_grant_location">Aktifkan GPS</string>
+    <string name="location_permission_rationale">Izin lokasi akurat dibutuhkan untuk mengunci koordinat GPS dan memvalidasi jarak dari lokasi kantor.</string>
+    <string name="location_searching">Mencari sinyal GPS akurat...</string>
+    <string name="location_locked">GPS Terkunci</string>
+    <string name="location_unlocked">Belum Terkunci</string>
+    <string name="location_accuracy_fmt">Akurasi ±%.1f m</string>
+    <string name="location_distance_fmt">Jarak ke kantor: %.1f m (Maks %.0f m)</string>
+    <string name="location_within_radius">Dalam Radius Kantor</string>
+    <string name="location_outside_radius">Di Luar Radius Kantor</string>
+    <string name="btn_open_maps">Buka Google Maps</string>
+
+    <!-- Submit & Validation -->
+    <string name="btn_submit_attendance">Kirim Absensi</string>
+    <string name="validation_missing_id">Isi NIK / ID Karyawan terlebih dahulu</string>
+    <string name="validation_missing_name">Isi Nama Lengkap terlebih dahulu</string>
+    <string name="validation_missing_photo">Ambil foto selfie terlebih dahulu</string>
+    <string name="validation_missing_gps">Kunci lokasi GPS terlebih dahulu</string>
+    <string name="validation_outside_radius">Lokasi Anda berada di luar radius kantor yang diizinkan</string>
+    <string name="submit_success_message">Absensi berhasil dicatat dan tersimpan di cloud!</string>
+    <string name="submit_success_with_sheets">Absensi tersimpan di cloud &amp; terkirim ke Google Sheets!</string>
+
+    <!-- History Screen -->
+    <string name="history_title">Riwayat Absensi</string>
+    <string name="btn_export_csv">Ekspor CSV</string>
+    <string name="btn_share_csv">Bagikan CSV</string>
+    <string name="history_empty_title">Belum Ada Riwayat Absensi</string>
+    <string name="history_empty_subtitle">Rekam absensi Check-In atau Check-Out pertama Anda di tab Absen. Data akan otomatis tersimpan di cloud dan siap diekspor ke CSV.</string>
+    <string name="history_filter_all">Semua</string>
+    <string name="history_filter_in">Masuk</string>
+    <string name="history_filter_out">Pulang</string>
+    <string name="history_delete_confirm_title">Hapus Riwayat?</string>
+    <string name="history_delete_confirm_msg">Catatan absensi ini akan dihapus permanen dari cloud.</string>
+    <string name="btn_cancel">Batal</string>
+    <string name="btn_delete">Hapus</string>
+    <string name="btn_close">Tutup</string>
+
+    <!-- Settings Screen -->
+    <string name="settings_title">Pengaturan Lokasi &amp; Sync</string>
+    <string name="settings_geofence_section">Validasi Radius Kantor (Geofence)</string>
+    <string name="settings_geofence_toggle">Wajibkan Dalam Radius Kantor</string>
+    <string name="settings_office_name">Nama Lokasi Kerja</string>
+    <string name="settings_office_lat">Latitude Kantor</string>
+    <string name="settings_office_lng">Longitude Kantor</string>
+    <string name="settings_max_radius">Radius Maksimal (meter)</string>
+    <string name="settings_use_current_gps">Gunakan Lokasi GPS Saat Ini</string>
+    <string name="settings_sheets_section">Sinkronisasi Google Sheets &amp; Drive (Opsional)</string>
+    <string name="settings_sheets_desc">Masukkan URL Web App dari Google Apps Script (Code.gs) jika Anda juga ingin mengirim data absensi &amp; foto Base64 langsung ke Google Sheets dan Google Drive.</string>
+    <string name="settings_sheets_url_label">URL Web App Google Apps Script</string>
+    <string name="settings_copy_code_gs">Salin Template Code.gs</string>
+    <string name="settings_save_btn">Simpan Pengaturan</string>
+    <string name="settings_saved_toast">Pengaturan lokasi &amp; sinkronisasi berhasil disimpan</string>
+    <string name="settings_code_copied">Template Code.gs berhasil disalin ke clipboard</string>
+</resources>
